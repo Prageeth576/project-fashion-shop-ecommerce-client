@@ -1,0 +1,115 @@
+<app-main-nav></app-main-nav>
+
+<div class="container-fluid product">
+    <div class="row mx-3 justify-content-start bread_crumb">
+        <div class="col-auto">
+            <nav aria-label="breadcrumb"> 
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ category_name |
+                        titlecase }}</li>
+                    <li [routerLink]="['/shop/category', category_name, sub_id, sub_category_name]"
+                        class="breadcrumb-item" aria-current="page" style="cursor: pointer;"><a style="text-decoration: underline;">{{ sub_category_name | titlecase }}</a></li>
+                    <li class="breadcrumb-item active nav_link_product_name" aria-current="page">{{
+                        select_product.product_name | titlecase }}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row mx-3 mt-3 justify-content-start product_details">
+        <div class="col-lg-6 mb-5 slider">
+            <div class="keen-slider" #sliderRef>
+                <div class="keen-slider__slide number-slide" *ngFor="let images of select_product.files">
+                    <img src="{{ images }}" alt="sample image" style="max-height: 350px; object-fit: contain;">
+                </div>
+            </div>
+            <div class="keen-slider thumbnail" #thumbnailRef>
+                <div class="keen-slider__slide number-slide" *ngFor="let images of select_product.files">
+                    <img src="{{ images }}" alt="sample image" style="max-height: 100px; object-fit: contain;">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 details ps-5">
+            <div class="product_name">
+                <h5>{{ select_product.product_name }}</h5>
+            </div>
+
+            <div class="second mt-5">
+                <div class="row">
+                    <div class="col-6 price">
+                        <h4>{{ select_product.price | currency:'USD' }}</h4>
+                    </div>
+                    <div class="col-auto availability">
+                        <h6 [ngStyle]="getColorAvailability">{{ select_product.availability }}</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="middle my-4">
+                <div class="row">
+                    <div class="col-auto">
+                        <label for="color">Color:</label>
+                        <select class="form-select d-inline-flex focus-ring text-decoration-none border rounded-2 mt-1" style="--bs-focus-ring-color: var(--contrast_background); 
+                        --bs-focus-ring-x: 0px;
+                        --bs-focus-ring-y: 0px;
+                        --bs-focus-ring-blur: 2px; cursor: pointer;" aria-label="Default select example" [formControl]="color">
+                            <option *ngFor="let color of select_product.colors" value="{{ color.color_name }}">{{ color.color_name }}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="last">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="size">Size:</label>
+                        <select class="form-select d-inline-flex focus-ring text-decoration-none border rounded-2 mt-1" style="--bs-focus-ring-color: var(--contrast_background); 
+                        --bs-focus-ring-x: 0px;
+                        --bs-focus-ring-y: 0px;
+                        --bs-focus-ring-blur: 2px; cursor: pointer;" aria-label="Default select example" [formControl]="size">
+                            <option *ngFor="let size of select_product.sizes" value="{{ size.name }}">{{ size.name }}</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <label for="quantity">Quantity:</label>
+                        <select class="form-select d-inline-flex focus-ring text-decoration-none border rounded-2 mt-1" style="--bs-focus-ring-color: var(--contrast_background); 
+                        --bs-focus-ring-x: 0px;
+                        --bs-focus-ring-y: 0px;
+                        --bs-focus-ring-blur: 2px; cursor: pointer;" aria-label="Default select example" [formControl]="quantity">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="make_order my-5">
+                <div class="row">
+                    <div class="col-auto add-to-cart">
+                        <button (click)="addToCartProduct()">Add to Cart</button>
+                    </div>
+
+                    <div class="col-auto buy-now">
+                        <button (click)="onCheckoutBuyNow()">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mx-5 mt-3 specification">
+        <div class="mb-3">
+            <h6>About this product</h6>
+        </div>
+        <div [innerHTML]="byPassHTML(html)"></div>
+    </div>
+
+    <!-- toast message -->
+    <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+
+</div>

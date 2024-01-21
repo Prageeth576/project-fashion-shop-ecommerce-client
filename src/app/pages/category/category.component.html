@@ -1,0 +1,49 @@
+<app-main-nav></app-main-nav>
+
+<div class="container-fluid category">
+    <div class="row mx-3 justify-content-start bread_crumb">
+        <div class="col-auto">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ category_name | titlecase }}</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ sub_category_name | titlecase }}</li> 
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="products_card mt-2">
+        <div class="row">
+            <div class="col-3" id="nav">
+                <div class="form-check ms-4 mb-1" *ngFor="let sub of categories">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="{{ sub.sub_id }}"
+                        value="{{ sub.sub_id }}" (click)="onSelect(sub.sub_id, sub.sub_category_name)" [checked]="sub.sub_category_name === checkedName">
+                    <label class="form-check-label" for="{{ sub.sub_id }}">
+                        {{ sub.sub_category_name | titlecase }}
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-9" id="table">
+                <div class="row me-4 justify-content-start">
+                    <div class="col-md-3 mb-4" *ngFor="let products of allProduct">
+                        <div class="card_body px-3 py-3">
+                            <div class="text-center">
+                                <img src="{{ products.files[0] }}" alt="cover_photo" class="img-fluid"
+                                    style="max-height: 200px; min-height: 200px; object-fit: contain;">
+                            </div>
+                            <div class="mt-2">
+                                <p [routerLink]="['/shop/category', category_name, sub_id, sub_category_name, 'product', products.id]"
+                                    title="{{ products.product_name }}">{{ products.product_name }}</p>
+                            </div>
+                            <div>
+                                <h5>{{ products.price | currency:'USD' }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

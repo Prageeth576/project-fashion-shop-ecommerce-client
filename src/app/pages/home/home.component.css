@@ -1,0 +1,247 @@
+/*-- banner --*/
+.image_banner {
+    top: 56px;
+    position: relative;
+}
+
+.image_banner .row {
+    background-color: var(--contrast_background);
+}
+
+.image_banner img {
+    z-index: 1;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.image_banner .col-8 {
+    background-color: var(--contrast_background);
+}
+
+.image_banner .col-4 {
+    background-color: var(--contrast_background);
+}
+
+.image_banner .main .button button:hover {
+    background-color: var(--black_hover);
+}
+
+
+/* responsive */
+@media (min-width: 1400px) {
+    .image_banner .main .brand_name h6 {
+        font-size: var(--font_size_heading_05);
+        font-weight: var(--font_weight_bold);
+        letter-spacing: 14px;
+        color: var(--typography_01);
+    }
+
+    .image_banner .main .text h2 {
+        font-size: var(--font_size_heading_02);
+        line-height: var(--line_height_heading_02);
+        font-weight: var(--font_weight_extra_bold);
+        color: var(--typography_01);
+    }
+
+    .image_banner .main .button button {
+        border: none;
+        background-color: var(--typography_01);
+        color: var(--typography_03);
+        padding: 14px 28px;
+        font-size: var(--font_size_heading_06);
+        font-weight: var(--font_weight_medium);
+    }
+
+    .image_banner .second {
+        display: none;
+    }
+}
+
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .image_banner .main .brand_name h6 {
+        font-size: var(--font_size_heading_06);
+        font-weight: var(--font_weight_bold);
+        letter-spacing: 10px;
+        color: var(--typography_01);
+    }
+
+    .image_banner .main .text h2 {
+        font-size: var(--font_size_heading_03);
+        line-height: var(--line_height_heading_03);
+        font-weight: var(--font_weight_extra_bold);
+        color: var(--typography_01);
+    }
+
+    .image_banner .main .button button {
+        border: none;
+        background-color: var(--typography_01);
+        color: var(--typography_03);
+        padding: 10px 20px;
+        font-size: var(--font_size_body_text);
+        font-weight: var(--font_weight_medium);
+    }
+
+    .image_banner .second {
+        display: none;
+    }
+}
+
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .image_banner .main .brand_name h6 {
+        font-size: var(--font_size_heading_06);
+        font-weight: var(--font_weight_bold);
+        letter-spacing: 10px;
+        color: var(--typography_01);
+    }
+
+    .image_banner .main .text h2 {
+        font-size: var(--font_size_heading_03);
+        line-height: var(--line_height_heading_03);
+        font-weight: var(--font_weight_extra_bold);
+        color: var(--typography_01);
+    }
+
+    .image_banner .main .button button {
+        border: none;
+        background-color: var(--typography_01);
+        color: var(--typography_03);
+        padding: 10px 20px;
+        font-size: var(--font_size_body_text);
+        font-weight: var(--font_weight_medium);
+    }
+
+    .image_banner .second {
+        display: none;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .image_banner .main .brand_name h6 {
+        font-size: var(--font_size_heading_06);
+        font-weight: var(--font_weight_bold);
+        letter-spacing: 5px;
+        color: var(--typography_01);
+    }
+
+    .image_banner .main .text h2 {
+        font-size: var(--font_size_heading_04);
+        line-height: var(--line_height_heading_04);
+        font-weight: var(--font_weight_extra_bold);
+        color: var(--typography_01);
+    }
+
+    .image_banner .main .button button {
+        border: none;
+        background-color: var(--typography_01);
+        color: var(--typography_03);
+        padding: 8px 16px;
+        font-size: var(--font_size_nav_m);
+        font-weight: var(--font_weight_normal);
+    }
+
+    .image_banner .second {
+        display: none;
+    }
+}
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .image_banner .main {
+        display: none;
+    }
+
+    .image_banner .second {
+        top: -10px;
+        position: relative;
+    }
+
+    .image_banner .second .text_group {
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .image_banner .second .brand_name h6 {
+        font-size: var(--font_size_nav_m);
+        font-weight: var(--font_weight_bold);
+        letter-spacing: 3px;
+        color: var(--typography_03);
+        text-shadow: 2px 2px 4px var(--typography_01);
+    }
+
+    .image_banner .second .text h2 {
+        font-size: var(--font_size_heading_03);
+        line-height: var(--line_height_heading_03);
+        font-weight: var(--font_weight_extra_bold);
+        color: var(--typography_03);
+        text-shadow: 2px 2px 5px var(--typography_01);
+    }
+
+    .image_banner .second .button button {
+        border: none;
+        background-color: var(--typography_01);
+        color: var(--typography_03);
+        padding: 6px 12px;
+        font-size: var(--font_size_nav_m);
+        font-weight: var(--font_weight_normal);
+    }
+
+    .image_banner .second .button button:hover {
+        background-color: var(--black_hover);
+    }
+}
+
+
+@media (max-width: 575px) {
+    .image_banner .main {
+        display: none;
+    }
+
+    .image_banner .second {
+        top: -10px;
+        position: relative;
+    }
+
+    .image_banner .second .text_group {
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .image_banner .second .brand_name h6 {
+        font-size: var(--font_size_nav_s);
+        font-weight: var(--font_weight_bold);
+        letter-spacing: 2px;
+        color: var(--typography_03);
+        text-shadow: 1px 1px 3px var(--typography_01);
+    }
+
+    .image_banner .second .text h2 {
+        font-size: var(--font_size_heading_05);
+        line-height: var(--line_height_heading_05);
+        font-weight: var(--font_weight_extra_bold);
+        color: var(--typography_03);
+        text-shadow: 2px 2px 5px var(--typography_01);
+    }
+
+    .image_banner .second .button button {
+        border: none;
+        background-color: var(--typography_01);
+        color: var(--typography_03);
+        padding: 5px 10px;
+        font-size: var(--font_size_nav_s);
+        font-weight: var(--font_weight_normal);
+    }
+
+    .image_banner .second .button button:hover {
+        background-color: var(--black_hover);
+    }
+}

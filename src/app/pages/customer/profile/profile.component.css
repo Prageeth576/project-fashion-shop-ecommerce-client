@@ -1,0 +1,6 @@
+.profile {
+    position: absolute; 
+    margin-top: 150px; 
+    height: 200vh;
+    background-color: var(--typography_03);
+}

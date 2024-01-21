@@ -1,0 +1,95 @@
+<app-main-nav (MainNavEventHide)="navReceiveDataHide($event)"
+    (MainNavEventShow)="navReceiveDataShow($event)"></app-main-nav>
+
+<div class="container-fluid cart">
+    <div class="empty_cart" *ngIf="isHide">
+        <div class="row mx-3">
+            <div class="col-12 text-center">
+                <h4>Your Areto Cart is empty.</h4> <br>
+                <h6>Sign in and continue shopping.</h6>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isShow">
+        <div class="empty_cart" *ngIf="emptyCart">
+            <div class="row mx-3">
+                <div class="col-12 text-center">
+                    <h4>Your Areto Cart is empty.</h4> <br>
+                    <h6>Continue shopping.</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- cart items -->
+    <div class="cart_items" *ngIf="isShow">
+        <div *ngIf="shoppingCart">
+            <div class="row mx-3">
+                <div class="col-8">
+                    <div class="title mb-3">
+                        <h5>Shopping Cart <i class="fa fa-refresh fa-spin fa-3x fa-fw" style="font-size: var(--font_size_heading_05)" *ngIf="shoppingSpinner"></i></h5>
+                    </div>
+                    <div class="card_body mb-3" *ngFor="let carts of cartItems">
+                        <div class="row align-items-center">
+                            <div class="col-4 d-flex align-items-center justify-content-center" style="height: 200px;">
+                                <img src="{{ carts.files[0] }}" alt="cover_photo"
+                                    class="img-fluid" style="max-height: 180px; min-height: 180px; object-fit: contain;">
+                            </div>
+                            <div class="col-8 second">
+                                <div class="row product_name">
+                                    <div class="col-12">
+                                        <p>{{ carts.product_name }}</p>
+                                    </div>
+                                </div>
+                                <div class="row price">
+                                    <div class="col-auto">
+                                        {{ carts.price | currency:'USD' }}
+                                    </div>
+                                </div>
+                                <div class="row middle">
+                                    <div class="col-auto">
+                                        Color: <span class="sub_cart_item">{{ carts.cart_items.color }}</span>
+                                    </div>
+                                </div>
+                                <div class="row middle">
+                                    <div class="col-auto">
+                                        Size: <span class="sub_cart_item">{{ carts.cart_items.size }}</span>
+                                    </div>
+                                </div>
+                                <div class="row middle">
+                                    <div class="col-auto">
+                                        Quantity: <span class="sub_cart_item">{{ carts.cart_items.quantity }}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-auto delete ms-auto me-2">
+                                        <a (click)="dropCart(carts.id)" style="cursor: pointer;">Delete<i class="fa fa-trash ms-1" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 ps-2">
+                    <div class="checkout text-center">
+                        <div>
+                            <h6>Sub Total ({{ totalQuantity }} items): <span class="price">{{ totalPrice | currency:'USD' }}</span></h6>
+                        </div>
+                        <div>
+                            <button (click)="onCheckout()">Proceed to checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="sub_total">
+                <div class="row mx-3">
+                    <div class="col-8 text-end">
+                        <h6>Sub Total ({{ totalQuantity }} items): {{ totalPrice | currency:'USD' }}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
